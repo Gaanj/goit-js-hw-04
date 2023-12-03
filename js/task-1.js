@@ -1,8 +1,23 @@
-function slugify(title){
-    let arrays = title.toLowerCase().replace(/\s/g, "-")
-    return  arrays;
+function isEnoughCapacity(products, containerSize) {
+    let totalQuantity = 0;
+    for (let product in products) {
+        totalQuantity += products[product];
+    }
+    return totalQuantity <= containerSize;
 }
-console.log(slugify("Arrays for begginers"));
-console.log(slugify("English for developer"));
-console.log(slugify("Ten secrets of JavaScript"));
-console.log(slugify("How to become a JUNIOR developer in TWO WEEKS"));
+
+console.log(
+    isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)
+);
+
+console.log(
+    isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12)
+);
+
+console.log(
+    isEnoughCapacity({ apples: 1, lime: 5, tomatoes: 3 }, 14)
+);
+
+console.log(
+    isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7)
+);
